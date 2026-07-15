@@ -5,8 +5,8 @@ Following [The Greatest Software Developers] report.
 
 ## Week 1: Language Deep Dive
 
-- [✅] Reverse string
-- [ ] FizzBuzz
+- ✅ Reverse string
+- ✅ FizzBuzz
 - [ ] Palindrome check
 - [ ] Two Sum
 - [ ] Valid Anagram
@@ -17,3 +17,4 @@ Following [The Greatest Software Developers] report.
 | Day | Algorithm      | Source Read        | Project    | Pushed |
 | --- | -------------- | ------------------ | ---------- | ------ |
 | Mon | reverse string | strings/strings.go | repo setup | ✅     |
+| Tue | fizzbuzz       | fmt/print.go       | repo setup | ✅     |
