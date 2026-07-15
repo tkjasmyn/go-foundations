@@ -1,12 +1,20 @@
 package algorithms
 
+import "unicode"
+
 func isPalindrome(s string) bool {
 	runes := []rune(s)
+	res := []rune{}
+	for _, r := range runes {
+		if unicode.IsLetter(r) || unicode.IsNumber(r) {
+			res = append(res, unicode.ToLower(r))
+		}
+	}
 	left := 0
-	right := len(runes) - 1
+	right := len(res) - 1
 
 	for left < right {
-		if runes[left] != runes[right] {
+		if res[left] != res[right] {
 			return false
 		}
 		left++

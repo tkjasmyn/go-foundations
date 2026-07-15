@@ -11,6 +11,8 @@ func TestIsPalindrome(t *testing.T) {
 		{"hello", false},
 		{"a", true},
 		{"", true},
+		{"A man a plan a canal Panama", true},
+		{"Was it a car or a cat I saw", true},
 	}
 
 	for _, tt := range test {
