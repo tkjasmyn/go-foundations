@@ -52,3 +52,30 @@
     Questions to answer later:
     - Read about sync.Pool
     - Read about reflect package basics
+
+## sort.go
+    File: sort/sort.go
+    Date: 2026-07-15
+    Time Spent: 1 hr
+
+    What I looked at:
+    - The `Interface` interface ("Contract" for sorting any data)
+    - `Sort` function ("the orchestarator". Calls `Interface`)
+    - The `IntSlice` type (behaves like []int but is a distinct type with its own methods like func (p IntSlice) Len() int   { return len(p) })
+
+    Key interface methods:
+    - Len() int — number of elements in the collection or list
+    - Less(i, j int) bool — "the brain", to know if item at position i is smaller than item at position j
+    - Swap(i, j int) — swap the elementswith indexes i and j
+
+    What I learned:
+    sort.Interface defines the three questions any sorting algorithm needs answered, and Sort() orchestrates a clever hybrid algorithm (Pattern-Defeating Quicksort (pdqsort)) that asks those questions to rearrange anything into order.
+    sort.Sort never sees the actual data, It only calls Len, Less, and Swap.
+
+    What I don't understand yet:
+    - How does Pattern-Defeating Quicksort (pdqsort) work and what does it do?
+    - What is the significance and importance of time complexity?
+
+    Questions to answer later:
+    - Read about pdqsort
+    - Read about time complexity
