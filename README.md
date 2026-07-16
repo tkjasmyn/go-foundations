@@ -14,8 +14,9 @@ Following [The Greatest Software Developers] report.
 
 ## Daily Log
 
-| Day | Algorithm        | Source Read        | Project    | Pushed |
-| --- | ---------------- | ------------------ | ---------- | ------ |
-| Mon | reverse string   | strings/strings.go | repo setup | ✅     |
-| Tue | fizzbuzz         | fmt/print.go       | repo setup | ✅     |
-| Wed | palindrome check | sort/sort.go       | repo setup | ✅     |
+| Day | Algorithm        | Source Read            | Project    | Pushed |
+| --- | ---------------- | ---------------------- | ---------- | ------ |
+| Mon | reverse string   | strings/strings.go     | repo setup | ✅     |
+| Tue | fizzbuzz         | fmt/print.go           | —          | ✅     |
+| Wed | palindrome check | sort/sort.go           | —          | ✅     |
+| Wed | two sum          | container/list/list.go | —          | ✅     |
