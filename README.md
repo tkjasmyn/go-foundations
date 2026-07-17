@@ -8,15 +8,16 @@ Following [The Greatest Software Developers] report.
 - ✅ Reverse string
 - ✅ FizzBuzz
 - ✅ Palindrome check
-- [ ] Two Sum
-- [ ] Valid Anagram
+- ✅ Two Sum
+- ✅ Valid Anagram
 - [ ] Project: CLI Calculator
 
 ## Daily Log
 
-| Day | Algorithm        | Source Read            | Project    | Pushed |
-| --- | ---------------- | ---------------------- | ---------- | ------ |
-| Mon | reverse string   | strings/strings.go     | repo setup | ✅     |
-| Tue | fizzbuzz         | fmt/print.go           | —          | ✅     |
-| Wed | palindrome check | sort/sort.go           | —          | ✅     |
-| Wed | two sum          | container/list/list.go | —          | ✅     |
+| Day | Algorithm        | Source Read            | Project        | Pushed |
+| --- | ---------------- | ---------------------- | -------------- | ------ |
+| Mon | reverse string   | strings/strings.go     | repo setup     | ✅     |
+| Tue | fizzbuzz         | fmt/print.go           | —              | ✅     |
+| Wed | palindrome check | sort/sort.go           | —              | ✅     |
+| Thu | two sum          | container/list/list.go | —              | ✅     |
+| Fri | anagram          | —                      | cli calculator | ✅     |
