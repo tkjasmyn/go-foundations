@@ -1,34 +1,56 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
+	"os"
 	"strconv"
+	"strings"
 )
 
-func calculator(num1, num2 string, opp string) (int, error) {
-	n1, _ := strconv.Atoi(num1)
-	n2, _ := strconv.Atoi(num2)
-
-	switch opp {
-	case "+":
-		return (n1+n2), nil
-	case "-":
-		return (n1-n2), nil
-	case "*":
-		return (n1*n2), nil
-	case "/":
-		return (n1/n2), nil
-	default:
-		fmt.Println("Enter a valid operator")
-	}
-}
-
 func main() {
-	fmt.Println("Welcome to Cli Calculator!")
-	fmt.Println("Enter the first number")
-	num1, _ := fmt.Scanln()
-	fmt.Println("Enter the second number")
-	num2, _ := fmt.Scanln()
-	fmt.Println("Enter your operator")
-	opp, _ := fmt.Scanln()
+	scanner := bufio.NewScanner(os.Stdin)
+
+	fmt.Println("First number: ")
+	scanner.Scan()
+	num1str := scanner.Text()
+
+	fmt.Println("Operator (+, -, *, /): ")
+	scanner.Scan()
+	op := strings.TrimSpace(scanner.Text())
+
+	fmt.Println("Second number: ")
+	scanner.Scan()
+	num2str := scanner.Text()
+
+	num1, err := strconv.Atoi(strings.TrimSpace(num1str))
+	if err != nil {
+		fmt.Println("Enter a valid first number")
+		return
+	}
+
+	num2, err := strconv.Atoi(strings.TrimSpace(num2str))
+	if err != nil {
+		fmt.Println("Enter a valid second number")
+		return
+	}
+	
+	var result int
+	switch op {
+	case "+":
+		result = num1 + num2
+	case "-":
+		result = num1 - num2
+	case "*":
+		result = num1 * num2
+	case "/":
+		if num2 == 0 {
+			fmt.Println("Error: division by zero")
+			return
+		}
+		result = num1 / num2
+	default:
+		fmt.Printf("Unknown operator: %s\n", op)
+	}
+	fmt.Printf("%d %s %d = %d\n", num1, op, num2, result)
 }
