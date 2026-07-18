@@ -12,3 +12,19 @@ func TwoSumReview(nums []int, target int) []int {
 	}
 	return nil
 }
+
+func IsAnagramReview(s1, s2 string) bool {
+	count := make(map[rune]int)
+
+	for _, r := range s1 {
+		count[r]++
+	}
+	
+	for _, r := range s2 {
+		count[r]--
+		if count[r] < 0 {
+			return false
+		}
+	}
+	return true
+}
