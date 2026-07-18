@@ -10,7 +10,7 @@ Following [The Greatest Software Developers] report.
 - ✅ Palindrome check
 - ✅ Two Sum
 - ✅ Valid Anagram
-- [ ] Project: CLI Calculator
+- ✅ Project: CLI Calculator
 
 ## Daily Log
 
@@ -21,3 +21,4 @@ Following [The Greatest Software Developers] report.
 | Wed | palindrome check | sort/sort.go           | —              | ✅     |
 | Thu | two sum          | container/list/list.go | —              | ✅     |
 | Fri | anagram          | —                      | cli calculator | ✅     |
+| Sat | week1 review     | —                      | cli calculator | ✅     |
