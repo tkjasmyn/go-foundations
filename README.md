@@ -1,24 +1,22 @@
 # Go Foundations
 
 Learning Go deeply before AI specialization.
-Following [The Greatest Software Developers] report.
 
-## Week 1: Language Deep Dive
+## Current Week: Week 2 (URL Shortener)
 
-- ✅ Reverse string
-- ✅ FizzBuzz
-- ✅ Palindrome check
-- ✅ Two Sum
-- ✅ Valid Anagram
-- ✅ Project: CLI Calculator
+[See Week 2 details →](week2.md)
 
-## Daily Log
+## Previous Weeks
 
-| Day | Algorithm        | Source Read            | Project        | Pushed |
-| --- | ---------------- | ---------------------- | -------------- | ------ |
-| Mon | reverse string   | strings/strings.go     | repo setup     | ✅     |
-| Tue | fizzbuzz         | fmt/print.go           | —              | ✅     |
-| Wed | palindrome check | sort/sort.go           | —              | ✅     |
-| Thu | two sum          | container/list/list.go | —              | ✅     |
-| Fri | anagram          | —                      | cli calculator | ✅     |
-| Sat | week1 review     | —                      | cli calculator | ✅     |
+- [Week 1: Language Deep Dive](week1.md)
+
+## Projects
+
+- [mini-git](mini-git/) — VCS with content-addressable storage
+- [CLI Calculator](projects/cli-calculator/) — Interactive calculator
+
+## Stats
+
+- Algorithms solved: 5
+- Source files read: 5
+- Projects built: 2
