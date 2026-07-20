@@ -4,15 +4,15 @@ Learning Go deeply before AI specialization.
 
 ## Current Week: Week 2 (URL Shortener)
 
-[See Week 2 details →](week2.md)
+[See Week 2 details →](weeks/week2.md)
 
 ## Previous Weeks
 
-- [Week 1: Language Deep Dive](week1.md)
+- [Week 1: Language Deep Dive](weeks/week1.md)
 
 ## Projects
 
-- [mini-git](mini-git/) — VCS with content-addressable storage
+- [mini-git](projects/mini-git/) — VCS with content-addressable storage
 - [CLI Calculator](projects/cli-calculator/) — Interactive calculator
 
 ## Stats
