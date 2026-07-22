@@ -12,7 +12,7 @@ Learning Go deeply before AI specialization.
 
 ## Projects
 
-- [mini-git](projects/mini-git/) — VCS with content-addressable storage
+- [mini-git](https://github.com/tkjasmyn/mini-git) — VCS with content-addressable storage
 - [CLI Calculator](projects/cli-calculator/) — Interactive calculator
 
 ## Stats
