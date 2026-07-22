@@ -57,11 +57,22 @@ func (u *URLStore) Shorten(w http.ResponseWriter, r *http.Request)  {
 	w.Write(res)
 }
 
+	func (u *URLStore) Redirect(w http.ResponseWriter, r *http.Request)  {
+		code := r.URL.Path[1:]
+		if url, ok := u.URLs[code]; ok {
+			http.Redirect(w, r, url, 302)
+		} else {
+			http.Error(w, "Not found", 404)
+			return
+		}
+	}
+
 func main()  {
 	store := &URLStore{
 		URLs: make(map[string]string),
 	}
 
+	http.HandleFunc("/", store.Redirect)
 	http.HandleFunc("/shorten", store.Shorten)
 
 	fmt.Println("Server running on port :8080")
