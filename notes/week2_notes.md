@@ -14,8 +14,7 @@
     - mu isync.Mutex — actual lock mechanism, imlemented in Go's runtime
 
     What I learned:
-    A `Mutex` is a single key to a single room. Only one goroutine holds it at a time. Everyone else waits. The zero value is an unlocked, ready-to-use lock that must never be copied. `Lock()` either grabs the lock immediately, or your goroutine goes to sleep until the current holder releases it — whichever comes first.
-    `Unlock()` is a memory flush. `Lock()` is a memory refresh. The pair creates a pipeline where everything written before the flush is guaranteed visible after the refresh.
+    A `Mutex` is a lock. Only one goroutine holds it at a time. Everyone else waits. The zero value is an unlocked, ready-to-use lock that must never be copied. `Lock()` locks `m`, a pointer to the mutex. `Unlock()` unlocks `m`.
 
     What I don't understand yet:
     - What exactly is `goroutine`?
