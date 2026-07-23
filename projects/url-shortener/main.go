@@ -58,6 +58,8 @@ func (u *URLStore) Shorten(w http.ResponseWriter, r *http.Request)  {
 }
 
 	func (u *URLStore) Redirect(w http.ResponseWriter, r *http.Request)  {
+		u.mu.Lock()
+		defer u.mu.Unlock()
 		code := r.URL.Path[1:]
 		if url, ok := u.URLs[code]; ok {
 			http.Redirect(w, r, url, 302)
