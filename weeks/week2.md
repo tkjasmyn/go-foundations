@@ -9,8 +9,9 @@
 
 ## Daily Log
 
-| Day | Algorithm         | Source Read   | Project                                 | Pushed |
-| --- | ----------------- | ------------- | --------------------------------------- | ------ |
-| Mon | group anagrams    | —             | design data structures                  | ✅     |
-| Tue | valid parentheses | sync/mutex.go | initialize server                       | ✅     |
-| Wed | min stack         | —             | POST /shorten and GET /redirect handler | ✅     |
+| Day | Algorithm          | Source Read   | Project                                 | Pushed |
+| --- | ------------------ | ------------- | --------------------------------------- | ------ |
+| Mon | group anagrams     | —             | design data structures                  | ✅     |
+| Tue | valid parentheses  | sync/mutex.go | initialize server                       | ✅     |
+| Wed | min stack          | —             | POST /shorten and GET /redirect handler | ✅     |
+| Thu | max sliding window | —             | —                                       | ✅     |
