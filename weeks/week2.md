@@ -3,15 +3,16 @@
 - ✅ Group Anagrams
 - ✅ Valid Parentheses
 - ✅ Min Stack
-- [ ] Sliding Window Maximum
-- [ ] Binary Search
-- [ ] Project: URL Shortener (HTTP API)
+- ✅ Sliding Window Maximum
+- ✅ Binary Search
+- ✅ Project: URL Shortener (HTTP API)
 
 ## Daily Log
 
-| Day | Algorithm          | Source Read   | Project                                 | Pushed |
-| --- | ------------------ | ------------- | --------------------------------------- | ------ |
-| Mon | group anagrams     | —             | design data structures                  | ✅     |
-| Tue | valid parentheses  | sync/mutex.go | initialize server                       | ✅     |
-| Wed | min stack          | —             | POST /shorten and GET /redirect handler | ✅     |
-| Thu | max sliding window | —             | —                                       | ✅     |
+| Day | Algorithm          | Source Read     | Project                                 | Pushed |
+| --- | ------------------ | --------------- | --------------------------------------- | ------ |
+| Mon | group anagrams     | —               | design data structures                  | ✅     |
+| Tue | valid parentheses  | sync/mutex.go   | initialize server                       | ✅     |
+| Wed | min stack          | —               | POST /shorten and GET /redirect handler | ✅     |
+| Thu | max sliding window | —               | —                                       | ✅     |
+| Fri | binary search      | bytes/buffer.go | —                                       | ✅     |
