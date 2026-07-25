@@ -17,6 +17,6 @@ Learning Go deeply before AI specialization.
 
 ## Stats
 
-- Algorithms solved: 9
-- Source files read: 5
+- Algorithms solved: 11
+- Source files read: 6
 - Projects built: 2
