@@ -2,7 +2,7 @@
 
 | Day | Algorithm           | Source Read  | Project            | Pushed |
 | --- | ------------------- | ------------ | ------------------ | ------ |
-| Mon | two sum ii          | os/file.go   | setup + add task   | ⬜     |
+| Mon | two sum ii          | —            | setup + add task   | ✅     |
 | Tue | 3sum                | time/time.go | list tasks         | ⬜     |
 | Wed | merge intervals     | —            | mark done          | ⬜     |
 | Thu | rotate array        | —            | delete task        | ⬜     |
