@@ -35,7 +35,7 @@ func (ts *TaskStore) loadTasks()  {
 		return
 	}
 	ts.tasks = append(ts.tasks, task...)
-	ts.nextID++
+	ts.nextID = len(ts.tasks)
 }
 
 func (ts *TaskStore) saveTasks()  {
