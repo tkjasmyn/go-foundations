@@ -35,7 +35,12 @@ func (ts *TaskStore) loadTasks()  {
 		return
 	}
 	ts.tasks = append(ts.tasks, task...)
-	ts.nextID = len(ts.tasks)
+	ts.nextID = 1
+	for _, task := range ts.tasks {
+	    if task.ID >= ts.nextID {
+	        ts.nextID = task.ID + 1
+	    }
+	}
 }
 
 func (ts *TaskStore) saveTasks()  {
@@ -62,6 +67,15 @@ func (ts *TaskStore) add(desc string)  {
 	ts.nextID++
 }
 
+func (ts *TaskStore) list()  {
+	if len(ts.tasks) == 0 {
+		fmt.Println("No tasks yet.")
+	}
+	for _, task := range ts.tasks {
+		fmt.Printf("ID: %d | Description: %s | Status: %s\n", task.ID, task.Description, task.Status)
+	}
+}
+
 func main()  {
 	store := &TaskStore {
 		tasks: []Task{},
@@ -81,5 +95,8 @@ func main()  {
 		store.add(desc)
 		fmt.Println("Task added successfully")
 		store.saveTasks()
+	}
+	if scanner.Text() == "list" {
+		store.list()
 	}
 }
