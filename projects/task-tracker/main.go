@@ -65,7 +65,7 @@ func (ts *TaskStore) add(desc string)  {
 func main()  {
 	store := &TaskStore {
 		tasks: []Task{},
-		nextID: 0,
+		nextID: 1,
 		filename: "tasks.json",
 	}
 	store.loadTasks()
@@ -79,6 +79,7 @@ func main()  {
 		scanner.Scan()
 		desc := scanner.Text()
 		store.add(desc)
+		fmt.Println("Task added successfully")
 		store.saveTasks()
 	}
 }
