@@ -95,8 +95,7 @@ func main()  {
 		store.add(desc)
 		fmt.Println("Task added successfully")
 		store.saveTasks()
-	}
-	if scanner.Text() == "list" {
+	} else if scanner.Text() == "list" {
 		store.list()
 	}
 }
