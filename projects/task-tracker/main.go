@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"strconv"
 )
 
 type Task struct {
@@ -23,6 +24,9 @@ type TaskStore struct {
 func (ts *TaskStore) loadTasks()  {
 	data, err := os.ReadFile("tasks.json")
 	if err != nil {
+		if os.IsNotExist(err) {
+			return
+		}
 		log.Printf("Error: %v", err)
 		return
 	}
@@ -76,6 +80,21 @@ func (ts *TaskStore) list()  {
 	}
 }
 
+func (ts *TaskStore) done(id int)  {
+	found := false
+	for i := range ts.tasks {
+		if ts.tasks[i].ID == id {
+			ts.tasks[i].Status = "done"
+			fmt.Printf("Task %d marked done\n",ts.tasks[i].ID)
+			found = true
+			break
+		}
+	}
+	if !found {
+		fmt.Println("Task not found.")
+	}
+}
+
 func main()  {
 	store := &TaskStore {
 		tasks: []Task{},
@@ -97,5 +116,15 @@ func main()  {
 		store.saveTasks()
 	} else if scanner.Text() == "list" {
 		store.list()
+	} else if scanner.Text() == "done" {
+		fmt.Println("Enter task id:")
+		scanner.Scan()
+		id, err := strconv.Atoi(scanner.Text())
+		if err != nil {
+			log.Printf("Error: %v\nPlease enter a valid number\n", err)
+			return
+		}
+		store.done(id)
+		store.saveTasks()
 	}
 }
