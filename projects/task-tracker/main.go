@@ -95,6 +95,29 @@ func (ts *TaskStore) done(id int)  {
 	}
 }
 
+func (ts *TaskStore) delete(id int)  {
+	found := false
+	for i := range ts.tasks {
+		if ts.tasks[i].ID == id {
+			fmt.Printf("Task %d deleted successfully.\n", id)
+			ts.tasks = append(ts.tasks[:i], ts.tasks[i+1:]...)
+			found = true
+			break
+		}
+	}
+	if !found {
+		fmt.Println("Task not found.")
+	}
+}
+
+func (ts *TaskStore) deleteAll()  {
+	err := os.Remove("./tasks.json")
+	if err != nil {
+		fmt.Println("No file to be deleted")
+		return
+	}
+}
+
 func main()  {
 	store := &TaskStore {
 		tasks: []Task{},
@@ -105,26 +128,45 @@ func main()  {
 
 	scanner := bufio.NewScanner(os.Stdin)
 
-	fmt.Println("What do you want to do? (add/list/exit)")
-	scanner.Scan()
-	if scanner.Text() == "add" {
-		fmt.Println("Enter task description:")
+	for {
+		fmt.Println("What do you want to do? (add/list/exit)")
 		scanner.Scan()
-		desc := scanner.Text()
-		store.add(desc)
-		fmt.Println("Task added successfully")
-		store.saveTasks()
-	} else if scanner.Text() == "list" {
-		store.list()
-	} else if scanner.Text() == "done" {
-		fmt.Println("Enter task id:")
-		scanner.Scan()
-		id, err := strconv.Atoi(scanner.Text())
-		if err != nil {
-			log.Printf("Error: %v\nPlease enter a valid number\n", err)
-			return
+		command := scanner.Text()
+		if command == "add" {
+			fmt.Println("Enter task description:")
+			scanner.Scan()
+			desc := scanner.Text()
+			store.add(desc)
+			fmt.Println("Task added successfully")
+			store.saveTasks()
+		} else if command == "list" {
+			store.list()
+		} else if command == "done" {
+			fmt.Println("Enter task id:")
+			scanner.Scan()
+			id, err := strconv.Atoi(scanner.Text())
+			if err != nil {
+				log.Printf("Error: %v\nPlease enter a valid number\n", err)
+				return
+			}
+			store.done(id)
+			store.saveTasks()
+		} else if command == "delete" {
+			fmt.Println("Enter task id:")
+			scanner.Scan()
+			id, err := strconv.Atoi(scanner.Text())
+			if err != nil {
+				log.Printf("Error: %v\nPlease enter a valid number\n", err)
+				return
+			}
+			store.delete(id)
+			store.saveTasks()
+		} else if command == "delete all" {
+			store.deleteAll()
+			fmt.Println("File deleted")
+		} else if command == "exit" {
+			fmt.Println("Goodbye")
+			break
 		}
-		store.done(id)
-		store.saveTasks()
 	}
 }
