@@ -33,11 +33,28 @@ func main()  {
 	}
 
 	defer w.Close()
-	
-	_, err = io.Copy(w, r)
-	if err != nil {
-		fmt.Println("Error:", err)
-		return
+
+	stat, _ := os.Stat(r.Name())
+	size := stat.Size()
+
+	buf := make([]byte, 1024)
+	var copied int64 = 0
+
+	for {
+		n, err := r.Read(buf)
+		if n > 0 {
+			w.Write(buf[:n])
+			copied += int64(n)
+			per := (copied * 100) / size
+			fmt.Printf("Copying... %d%%\n", per)
+		}
+		if err == io.EOF {
+			break
+		}
+		if err != nil {
+			fmt.Println("Error:", err)
+			return
+		}
 	}
 
 	fmt.Println("Copied successfully")
