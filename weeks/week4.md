@@ -6,6 +6,6 @@
 | Tue | container with most water         | —           | add progress bar                | ✅     |
 | Wed | longest substring without repeats | —           | goroutines + channels (skipped) | ✅     |
 | Thu | product of array except self      | —           | error handling (light)          | ✅     |
-| Fri | valid sudoku (review: two sum ii) | —           | tests or README                 | ⬜     |
+| Fri | review: two sum ii                | —           | tests or README                 | ✅     |
 | Sat | week4 review                      | —           | —                               | ⬜     |
 | Sun | rest                              | —           | —                               | ⬜     |
