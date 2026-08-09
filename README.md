@@ -2,15 +2,16 @@
 
 Learning Go deeply before AI specialization.
 
-## Current Week: Week 4 (File Copier)
+## Current Week: Week 5 (Key-Value Store (HTTP API))
 
-[See Week 4 details →](weeks/week4.md)
+[See Week 5 details →](weeks/week5.md)
 
 ## Previous Weeks
 
 - [Week 1: Language Deep Dive](weeks/week1.md)
 - [Week 2: URL Shortener](weeks/week2.md)
 - [Week 3: Task Tracker](weeks/week3.md)
+- [Week 4: File Copier](weeks/week4.md)
 
 ## Projects
 
@@ -18,9 +19,10 @@ Learning Go deeply before AI specialization.
 - [CLI Calculator](projects/cli-calculator/) — Interactive calculator
 - [url-shortener](projects/url-shortener/)
 - [Task Tracker](projects/task-tracker/)
+- [File Copier](projects/file-copier/)
 
 ## Stats
 
-- Algorithms solved: 15
+- Algorithms solved: 19
 - Source files read: 7
-- Projects built: 4
+- Projects built: 5
