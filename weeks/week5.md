@@ -2,7 +2,7 @@
 
 | Day | Algorithm                         | Source Read | Project               | Pushed |
 | --- | --------------------------------- | ----------- | --------------------- | ------ |
-| Mon | valid sudoku                      | —           | setup + PUT handler   | ⬜     |
+| Mon | valid sudoku                      | —           | setup + PUT handler   | ✅     |
 | Tue | review: container with most water | —           | GET handler           | ⬜     |
 | Wed | review: longest substring         | —           | DELETE handler        | ⬜     |
 | Thu | first missing positive            | —           | mutex + tests         | ⬜     |
