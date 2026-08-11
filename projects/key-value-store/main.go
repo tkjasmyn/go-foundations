@@ -53,10 +53,40 @@ func (s *store) PUT(w http.ResponseWriter, r *http.Request)  {
 	w.Write(res)
 }
 
+func (s *store) GET(w http.ResponseWriter, r *http.Request) {
+	key := strings.TrimPrefix(r.URL.Path, "/key/")
+
+	if _, ok := s.data[key]; ok {
+		value := s.data[key]
+		resp := request{Value: value}
+
+		res, err := json.MarshalIndent(resp, " ", "\n")
+		if err != nil {
+			fmt.Printf("Error: %v", err)
+			return
+		}
+
+		w.Header().Set("Content-Type", "application/json")
+		w.Write(res)
+	} else {
+		http.Error(w, "Not found", 404)
+		return
+	}
+}
+
+func (s *store) HandleKey(w http.ResponseWriter, r *http.Request)  {
+	switch r.Method {
+	case "GET":
+		s.GET(w, r)
+	case "PUT":
+		s.PUT(w, r)
+	}
+}
+
 func main()  {
 	store := &store{
 		data: make(map[string]string),
 	}
-	http.HandleFunc("/", store.PUT)
+	http.HandleFunc("/key/", store.HandleKey)
 	http.ListenAndServe(":8080", nil)
 }
