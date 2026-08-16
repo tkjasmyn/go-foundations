@@ -2,9 +2,9 @@
 
 Learning Go deeply before AI specialization.
 
-## Current Week: Week 5 (Key-Value Store (HTTP API))
+## Current Week: Week 6 (Concurrent Web Scraper + Review Sprint)
 
-[See Week 5 details →](weeks/week5.md)
+[See Week 6 details →](weeks/week6.md)
 
 ## Previous Weeks
 
@@ -12,6 +12,7 @@ Learning Go deeply before AI specialization.
 - [Week 2: URL Shortener](weeks/week2.md)
 - [Week 3: Task Tracker](weeks/week3.md)
 - [Week 4: File Copier](weeks/week4.md)
+- [Week 5: Key-Value Store](weeks/week5.md)
 
 ## Projects
 
@@ -20,9 +21,10 @@ Learning Go deeply before AI specialization.
 - [url-shortener](projects/url-shortener/)
 - [Task Tracker](projects/task-tracker/)
 - [File Copier](projects/file-copier/)
+- [Key-Value Store](projects/key-value-store/)
 
 ## Stats
 
-- Algorithms solved: 19
+- Algorithms solved: 20
 - Source files read: 7
-- Projects built: 5
+- Projects built: 6
