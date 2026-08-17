@@ -2,7 +2,7 @@
 
 | Day | Algorithm                           | Source Read | Project                                   | Pushed |
 | --- | ----------------------------------- | ----------- | ----------------------------------------- | ------ |
-| Mon | review: valid parentheses           | —           | fetch one URL with net/http               | ⬜     |
+| Mon | review: valid parentheses           | —           | fetch one URL with net/http               | ✅     |
 | Tue | review: container with most water   | —           | goroutines: fetch 3 URLs concurrently     | ⬜     |
 | Wed | review: two sum II                  | —           | channels: collect results from goroutines | ⬜     |
 | Thu | review: longest substring           | —           | sync.WaitGroup: wait for all to finish    | ⬜     |
