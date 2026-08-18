@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"io"
 	"net/http"
+	"time"
 )
 
 func fetch(url string)  {
@@ -22,9 +23,14 @@ func fetch(url string)  {
 	}
 
 	fmt.Println("Status:", resp.StatusCode)
+	fmt.Println("URL:", resp.Request.URL)
 	fmt.Println("Body Length:", len(data))
 }
 
 func main()  {
-	fetch("http://example.com")
+	go fetch("http://example.com")
+	go fetch("http://google.com")
+	go fetch("http://facebook.com")
+
+	time.Sleep(5 * time.Second)
 }
