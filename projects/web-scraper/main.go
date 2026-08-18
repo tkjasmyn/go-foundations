@@ -6,10 +6,10 @@ import (
 	"net/http"
 )
 
-func fetch(w http.ResponseWriter, _ *http.Request)  {
-	resp, err := http.Get("https://example.com")
+func fetch(url string)  {
+	resp, err := http.Get(url)
 	if err != nil {
-		http.Error(w, err.Error(), 500)
+		fmt.Println("Error:", err)
 		return
 	}
 
@@ -17,16 +17,14 @@ func fetch(w http.ResponseWriter, _ *http.Request)  {
 
 	data, err := io.ReadAll(resp.Body)
 	if err != nil {
-		http.Error(w, err.Error(), 500)
+		fmt.Println("Error:", err)
 		return
 	}
 
 	fmt.Println("Status:", resp.StatusCode)
 	fmt.Println("Body Length:", len(data))
-	fmt.Println("First few bytes:", data[:10])
 }
 
 func main()  {
-	http.HandleFunc("/", fetch)
-	http.ListenAndServe(":8080", nil)
+	fetch("http://example.com")
 }
