@@ -4,10 +4,9 @@ import (
 	"fmt"
 	"io"
 	"net/http"
-	"time"
 )
 
-func fetch(url string)  {
+func fetch(url string, ch chan string)  {
 	resp, err := http.Get(url)
 	if err != nil {
 		fmt.Println("Error:", err)
@@ -22,15 +21,17 @@ func fetch(url string)  {
 		return
 	}
 
-	fmt.Println("Status:", resp.StatusCode)
-	fmt.Println("URL:", resp.Request.URL)
-	fmt.Println("Body Length:", len(data))
+	ch <- fmt.Sprintf("URL: %s, Status: %d, Length: %d", url, resp.StatusCode, len(data))
 }
 
 func main()  {
-	go fetch("http://example.com")
-	go fetch("http://google.com")
-	go fetch("http://facebook.com")
+	ch := make(chan string)
+	go fetch("http://example.com", ch)
+	go fetch("http://google.com", ch)
+	go fetch("http://facebook.com", ch)
 
-	time.Sleep(5 * time.Second)
+	for i := 0; i < 3; i++ {
+		result := <-ch
+		fmt.Println(result)
+	}
 }
