@@ -1,7 +1,7 @@
 package reviews
 
 func LengthOfLongestSubstring(s string) int {
-	count := 0
+	max := 0
 	left := 0
 	right := 0
 	seen := make(map[byte]bool)
@@ -11,12 +11,13 @@ func LengthOfLongestSubstring(s string) int {
 			delete(seen, s[left])
 			left++
 		}
+
 		seen[s[right]] = true
 		win := right - left + 1
-		if win > count {
-			count = win
+		if win > max {
+			max = win
 		}
 		right++
 	}
-	return count
+	return max
 }
