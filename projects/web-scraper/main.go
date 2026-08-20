@@ -4,12 +4,17 @@ import (
 	"fmt"
 	"io"
 	"net/http"
+	"sync"
 )
 
+var wg sync.WaitGroup
+
 func fetch(url string, ch chan string)  {
+	defer wg.Done()	
+
 	resp, err := http.Get(url)
 	if err != nil {
-		fmt.Println("Error:", err)
+		ch <- fmt.Sprintf("URL: %s, Error: %v", url, err)
 		return
 	}
 
@@ -25,10 +30,12 @@ func fetch(url string, ch chan string)  {
 }
 
 func main()  {
-	ch := make(chan string)
+	ch := make(chan string, 3)
+	wg.Add(3)
 	go fetch("http://example.com", ch)
 	go fetch("http://google.com", ch)
-	go fetch("http://facebook.com", ch)
+	go fetch("http://this-does-not-exist.com", ch)
+	wg.Wait()
 
 	for i := 0; i < 3; i++ {
 		result := <-ch
