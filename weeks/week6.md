@@ -6,6 +6,6 @@
 | Tue | review: container with most water   | sync/waitgroup.go | goroutines: fetch 3 URLs concurrently     | ✅     |
 | Wed | review: two sum II                  | —                 | channels: collect results from goroutines | ✅     |
 | Thu | review: longest substring           | —                 | sync.WaitGroup: wait for all to finish    | ✅     |
-| Fri | review: product except self         | —                 | parse titles, write to file, push         | ⬜     |
+| Fri | review: product except self         | —                 | parse titles, write to file, push         | ✅     |
 | Sat | re-do weakest algorithm from memory | —                 | week6 review + push log                   | ⬜     |
 | Sun | rest                                | —                 | —                                         | ⬜     |
