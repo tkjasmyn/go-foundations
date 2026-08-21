@@ -4,6 +4,8 @@ import (
 	"fmt"
 	"io"
 	"net/http"
+	"os"
+	"strings"
 	"sync"
 )
 
@@ -22,11 +24,21 @@ func fetch(url string, ch chan string)  {
 
 	data, err := io.ReadAll(resp.Body)
 	if err != nil {
-		fmt.Println("Error:", err)
+		ch <- fmt.Sprintf("URL: %s, Error reading body: %v", url, err)
 		return
 	}
 
-	ch <- fmt.Sprintf("URL: %s, Status: %d, Length: %d", url, resp.StatusCode, len(data))
+	bodyString := string(data)
+	start := strings.Index(bodyString, "<title>")
+	end := strings.Index(bodyString, "</title>")
+
+	if start == -1 || end == -1 {
+		ch <- fmt.Sprintf("URL: %s, Title: not found", url)
+		return
+	}
+	title := bodyString[start+len("<title>"):end]
+
+	ch <- fmt.Sprintf("Title: %s", title)
 }
 
 func main()  {
@@ -34,11 +46,18 @@ func main()  {
 	wg.Add(3)
 	go fetch("http://example.com", ch)
 	go fetch("http://google.com", ch)
-	go fetch("http://this-does-not-exist.com", ch)
+	go fetch("http://facebook.com", ch)
 	wg.Wait()
 
+	var result []string
 	for i := 0; i < 3; i++ {
-		result := <-ch
-		fmt.Println(result)
+		result = append(result, <-ch)
+	}
+
+	res := strings.Join(result, "\n")
+	err := os.WriteFile("result.txt", []byte(res), 0644)
+	if err != nil {
+		fmt.Println("Error:", err)
+		return
 	}
 }
