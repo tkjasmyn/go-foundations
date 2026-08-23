@@ -8,4 +8,4 @@
 | Thu | review: longest substring                    | —                 | sync.WaitGroup: wait for all to finish    | ✅     |
 | Fri | review: product except self                  | —                 | parse titles, write to file, push         | ✅     |
 | Sat | re-do: container with most water (NOT READY) | —                 | week6 review + push log                   | ✅     |
-| Sun | rest                                         | —                 | —                                         | ⬜     |
+| Sun | rest                                         | —                 | —                                         | ✅     |
