@@ -1,10 +1,24 @@
 package reviews
 
-// NOT READY — needs repetition Week 7
-// Container With Most Water: two pointers, move shorter line, track max area
-// Attempted 2026-08-22, blank after 10 minutes
-
 func MaxArea(height []int) int {
-    // TODO: implement after more repetition
-    return 0
+    left := 0
+    right := len(height) - 1
+    maxArea := 0
+
+    for left < right {
+        width := right - left
+        h := min(height[left], height[right])
+
+        area := width * h
+        if area > maxArea {
+            maxArea = area
+        }
+
+        if height[left] < height[right] {
+            left++
+        } else {
+            right--
+        }
+    }
+    return maxArea
 }
