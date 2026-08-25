@@ -3,7 +3,7 @@
 | Day | Algorithm                                         | Source Read            | Project                                | Pushed |
 | --- | ------------------------------------------------- | ---------------------- | -------------------------------------- | ------ |
 | Mon | container with most water (BLANK — full re-teach) | —                      | Chat Server: HTTP server + HTML page   | ✅     |
-| Tue | —                                                 | gorilla/websocket docs | Chat Server: WebSocket upgrade handler | ⬜     |
+| Tue | —                                                 | gorilla/websocket docs | Chat Server: WebSocket upgrade handler | 🔄wip  |
 | Wed | anagram (PEEK)                                    | —                      | Chat Server: echo one message          | ⬜     |
 | Thu | —                                                 | —                      | Chat Server: multiple clients + mutex  | ⬜     |
 | Fri | valid parentheses (BUGGY)                         | —                      | Chat Server: broadcast to all clients  | ⬜     |
