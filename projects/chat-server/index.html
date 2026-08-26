@@ -7,8 +7,26 @@
   </head>
   <body>
     <h1>Chat Server</h1>
-    <input type="text" name="" placeholder="Type a message..." id="" />
-    <button type="submit">Send</button>
-    <div></div>
+    <input type="text" name="" placeholder="Type a message..." id="msg" />
+    <button type="submit" id="btn">Send</button>
+    <div id="chat"></div>
   </body>
+
+  <script>
+    let ws = new WebSocket("ws://localhost:8080/ws");
+
+    function send() {
+      let msg = document.getElementById("msg").value;
+      ws.send(msg);
+    }
+
+    let btn = document.getElementById("btn");
+    btn.addEventListener("click", () => {
+      send();
+    });
+    ws.onmessage = (event) => {
+      let chat = document.getElementById("chat");
+      chat.innerHTML += "<p>" + event.data + "</p>";
+    };
+  </script>
 </html>
