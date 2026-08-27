@@ -1,10 +1,10 @@
 package reviews
 
 func LengthOfLongestSubstring(s string) int {
-	max := 0
 	left := 0
 	right := 0
 	seen := make(map[byte]bool)
+	max := 0
 
 	for right < len(s) {
 		for seen[s[right]] {
