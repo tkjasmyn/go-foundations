@@ -4,13 +4,25 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"sync"
 
 	"github.com/gorilla/websocket"
 )
 
-var upgrader = websocket.Upgrader{
-	ReadBufferSize: 1024,
-	WriteBufferSize: 1024,
+var (
+	upgrader = websocket.Upgrader{
+		ReadBufferSize: 1024,
+		WriteBufferSize: 1024,
+	}
+	clients = make(map[*websocket.Conn]bool)
+	mu  sync.Mutex
+)
+
+func deferCleanUp(conn *websocket.Conn)  {
+	mu.Lock()
+	delete(clients, conn)
+	mu.Unlock()
+	fmt.Printf("Clients connected: %d\n", len(clients))
 }
 
 func ws(w http.ResponseWriter, r *http.Request)  {
@@ -19,8 +31,13 @@ func ws(w http.ResponseWriter, r *http.Request)  {
 		log.Println(err)
 		return
 	}
+	mu.Lock()
+	clients[conn] = true
+	mu.Unlock()
 
-	fmt.Println("Client connected")
+	defer deferCleanUp(conn)
+
+	fmt.Printf("Clients connected: %d\n", len(clients))
 
 	for {
 		messageType, p, err := conn.ReadMessage()
