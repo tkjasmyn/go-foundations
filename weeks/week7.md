@@ -6,6 +6,6 @@
 | Tue | —                                                 | gorilla/websocket docs | Chat Server: WebSocket upgrade handler | 🔄 combined with Wed |
 | Wed | anagram (PEEK)                                    | —                      | Chat Server: echo one message          | ✅                   |
 | Thu | longest substring                                 | —                      | Chat Server: multiple clients + mutex  | ✅                   |
-| Fri | valid parentheses (BUGGY)                         | —                      | Chat Server: broadcast to all clients  | ⬜                   |
+| Fri | valid parentheses (BUGGY)                         | —                      | Chat Server: broadcast to all clients  | ✅                   |
 | Sat | week7 review + weakest re-do                      | —                      | push log                               | ⬜                   |
 | Sun | rest                                              | —                      | —                                      | ⬜                   |
