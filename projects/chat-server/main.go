@@ -42,15 +42,23 @@ func ws(w http.ResponseWriter, r *http.Request)  {
 	for {
 		messageType, p, err := conn.ReadMessage()
 		if err != nil {
-			log.Println(err)
+			log.Println("A client left the chat")
 			return
 		}
+		mu.Lock()
+		conns := []*websocket.Conn{}
+		for client := range clients {
+			conns = append(conns, client)
+		}
+		mu.Unlock()
 
 		fmt.Printf("Received: %s\n", string(p))
 
-		if err := conn.WriteMessage(messageType, p); err != nil {
-			log.Println(err)
-			return
+		for _, client := range conns {
+			if err := client.WriteMessage(messageType, p); err != nil {
+				log.Println(err)
+				return
+			}
 		}
 	}
 }
