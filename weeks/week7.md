@@ -8,4 +8,4 @@
 | Thu | longest substring (BUGGY, debugged with hints)       | —                      | Chat Server: multiple clients + mutex   | ✅                   |
 | Fri | valid parentheses (DONTGET, debugged with hints)     | —                      | Chat Server: broadcast to all clients   | ✅                   |
 | Sat | valid parentheses (DONTGET→BUGGY, independent re-do) | —                      | push log                                | ✅                   |
-| Sun | rest                                                 | —                      | —                                       | ⬜                   |
+| Sun | rest                                                 | —                      | —                                       | ✅                   |
