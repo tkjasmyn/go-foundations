@@ -2,9 +2,9 @@
 
 Learning Go deeply before AI specialization.
 
-## Current Week: Week 7: Chat Server (WebSocket) + Deep Review
+## Current Week: Week 8: Task Scheduler (Time, Goroutines, Channels)
 
-[See Week 7 details →](weeks/week7.md)
+[See Week 8 details →](weeks/week8.md)
 
 ## Previous Weeks
 
@@ -14,6 +14,7 @@ Learning Go deeply before AI specialization.
 - [Week 4: File Copier](weeks/week4.md)
 - [Week 5: Key-Value Store](weeks/week5.md)
 - [Week 6: Web Scraper](weeks/week6.md)
+- [Week 7: Chat Server](weeks/week7.md)
 
 ## Projects
 
@@ -24,9 +25,10 @@ Learning Go deeply before AI specialization.
 - [File Copier](projects/file-copier/)
 - [Key-Value Store](projects/key-value-store/)
 - [Web Scraper](projects/web-scraper/)
+- [Chat Server](projects/chat-server/)
 
 ## Stats
 
 - Algorithms solved: 20
-- Source files read: 8
-- Projects built: 7
+- Source files read: 9
+- Projects built: 8
