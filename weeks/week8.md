@@ -9,4 +9,3 @@
 | Fri | product except self (BUGGY, zero hints) | —                                 | Task Scheduler: polish, edge cases, push                                       | ⬜     |
 | Sat | week8 review + weakest re-do            | —                                 | push log                                                                       | ⬜     |
 | Sun | rest                                    | —                                 | —                                                                              | ⬜     |
-s
