@@ -14,6 +14,16 @@ type Task struct {
 	Delay string
 }
 
+func printList(mu *sync.Mutex, pending []Task)  {
+	mu.Lock()
+	defer mu.Unlock()
+
+	fmt.Println("Pending tasks:")
+	for i, task := range pending {
+		fmt.Printf("  %d. %s (%s)\n", i+1, task.Name, task.Delay)
+	}
+}
+
 func printLocked(mu *sync.Mutex, f func())  {
 	mu.Lock()
 	defer mu.Unlock()
@@ -24,9 +34,11 @@ func main()  {
 	var (
 		nextID int
 		pending []Task
-		wg sync.WaitGroup
+		// wg sync.WaitGroup
 		mu sync.Mutex
+		launched int
 	)
+	done := make(chan int, 100)
 	
 	scanner := bufio.NewScanner(os.Stdin)
 
@@ -39,16 +51,16 @@ func main()  {
 		mu.Unlock()
 
 		if taskName == "exit" {
+			for i := 0; i < launched; i++ {
+				<- done
+			}
 			break
 		}
 
 		if taskName == "list" {
-				fmt.Println("Pending tasks:")
-			for i, task := range pending {
-				fmt.Printf("  %d. %s (%s)\n", i+1, task.Name, task.Delay)
-			}
-				continue
-			}
+			printList(&mu, pending)
+			continue
+		}
 		
 		mu.Lock()
 		fmt.Println("Delay (e.g., 5s, 2m, 10s):")
@@ -72,10 +84,11 @@ func main()  {
 			continue
 		}
 
-		wg.Add(1)
+		// wg.Add(1)
 		id := nextID
+		launched++
 		go func(taskID int) {
-			defer wg.Done()
+			// defer wg.Done()
 			time.Sleep(d)
 			printLocked(&mu, func() {
 				fmt.Printf("Task %s executed after %d seconds\n", taskName, int(d.Seconds()))
@@ -86,9 +99,10 @@ func main()  {
 					}
 				}
 			})
+			done <- taskID
 			}(id)
 		}
-		wg.Wait()
+		// wg.Wait()
 
 		printLocked(&mu, func() {
 			fmt.Println("All tasks completed. Exiting.")
