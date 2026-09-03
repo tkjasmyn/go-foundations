@@ -8,23 +8,7 @@ import (
 	"time"
 )
 
-type Task struct {
-	ID int
-	Name string
-	Delay string
-}
-
-func printList(mu *sync.Mutex, pending []Task)  {
-	mu.Lock()
-	defer mu.Unlock()
-
-	fmt.Println("Pending tasks:")
-	for i, task := range pending {
-		fmt.Printf("  %d. %s (%s)\n", i+1, task.Name, task.Delay)
-	}
-}
-
-func printLocked(mu *sync.Mutex, f func())  {
+func printLock(mu *sync.Mutex, f func())  {
 	mu.Lock()
 	defer mu.Unlock()
 	f()
@@ -32,79 +16,46 @@ func printLocked(mu *sync.Mutex, f func())  {
 
 func main()  {
 	var (
-		nextID int
-		pending []Task
-		// wg sync.WaitGroup
 		mu sync.Mutex
-		launched int
+		wg sync.WaitGroup
 	)
-	done := make(chan int, 100)
-	
+
 	scanner := bufio.NewScanner(os.Stdin)
 
 	for {
 		mu.Lock()
-		fmt.Println("Welcome!")
-		fmt.Println("Task Name:")
+		fmt.Println("Task name:")
 		scanner.Scan()
-		taskName := scanner.Text()
 		mu.Unlock()
+		taskName := scanner.Text()
 
 		if taskName == "exit" {
-			for i := 0; i < launched; i++ {
-				<- done
-			}
 			break
 		}
 
-		if taskName == "list" {
-			printList(&mu, pending)
-			continue
-		}
-		
 		mu.Lock()
-		fmt.Println("Delay (e.g., 5s, 2m, 10s):")
+		fmt.Println("Delay:")
 		scanner.Scan()
-		delay := scanner.Text()
-		nextID++
-		task := Task{
-			ID: nextID,
-			Name: taskName,
-			Delay: delay,
-		}
-		pending = append(pending, task)
-		fmt.Printf("Task %d scheduled: %s (%s)\n", nextID, taskName, delay)
 		mu.Unlock()
+		delay := scanner.Text()
 	
 		d, err := time.ParseDuration(delay)
 		if err != nil {
-			printLocked(&mu, func() {
-				fmt.Println("Enter a valid delay string")
-			})
+			fmt.Println("Enter a valid delay string")
 			continue
-		}
+		}	
 
-		// wg.Add(1)
-		id := nextID
-		launched++
-		go func(taskID int) {
-			// defer wg.Done()
+		wg.Add(1)
+		go func() {
+			defer wg.Done()
 			time.Sleep(d)
-			printLocked(&mu, func() {
-				fmt.Printf("Task %s executed after %d seconds\n", taskName, int(d.Seconds()))
-				for i := range pending {
-					if pending[i].ID == taskID {
-						pending = append(pending[:i], pending[i+1:]...)
-						break
-					}
-				}
+			printLock(&mu, func() {
+				fmt.Printf("Task %s completed\n", taskName)
 			})
-			done <- taskID
-			}(id)
-		}
-		// wg.Wait()
-
-		printLocked(&mu, func() {
-			fmt.Println("All tasks completed. Exiting.")
-		})
+		}()
 	}
+	wg.Wait()
+	printLock(&mu, func() {
+		fmt.Println("All tasks completed. Exiting")
+	})
+}
