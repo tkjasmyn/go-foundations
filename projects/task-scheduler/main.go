@@ -24,6 +24,11 @@ func printList(mu *sync.Mutex, pending []Task)  {
 	mu.Lock()
 	defer mu.Unlock()
 
+	if len(pending) == 0 {
+		fmt.Println("No pending tasks")
+		return
+	}
+
 	fmt.Println("Pending tasks:")
 	for i, task := range pending {
 		fmt.Printf("  %d. %s (%s)\n", i+1, task.Name, task.Delay)
