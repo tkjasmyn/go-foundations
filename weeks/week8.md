@@ -7,5 +7,5 @@
 | Wed | binary search (PEEK, 30-sec peek)                   | —                            | Task Scheduler: channel-based completion notifications                              | ✅     |
 | Thu | —                                                   | —                            | Task Scheduler: REBUILD from scratch + list command                                 | ✅     |
 | Fri | product except self (BUGGY, fixed with debug trace) | —                            | Task Scheduler: polish, empty list, clean exit                                      | ✅     |
-| Sat | week8 review + weakest re-do                        | —                            | push log                                                                            | ⬜     |
+| Sat | product except self (BUGGY→PEEK, independent re-do) | —                            | push log                                                                            | ✅     |
 | Sun | rest                                                | —                            | —                                                                                   | ⬜     |
