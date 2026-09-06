@@ -2,9 +2,9 @@
 
 Learning Go deeply before AI specialization.
 
-## Current Week: Week 8: Task Scheduler (Time, Goroutines, Channels)
+## Current Week: Week 9: Mini Redis Clone (TCP Server, Protocol Parsing, Data Structures)
 
-[See Week 8 details →](weeks/week8.md)
+[See Week 9 details →](weeks/week9.md)
 
 ## Previous Weeks
 
@@ -15,6 +15,8 @@ Learning Go deeply before AI specialization.
 - [Week 5: Key-Value Store](weeks/week5.md)
 - [Week 6: Web Scraper](weeks/week6.md)
 - [Week 7: Chat Server](weeks/week7.md)
+- [Week 8: Task Scheduler](weeks/week8.md)
+
 
 ## Projects
 
@@ -26,9 +28,10 @@ Learning Go deeply before AI specialization.
 - [Key-Value Store](projects/key-value-store/)
 - [Web Scraper](projects/web-scraper/)
 - [Chat Server](projects/chat-server/)
+- [Task Scheduler](projects/task-scheduler/)
 
 ## Stats
 
 - Algorithms solved: 20
-- Source files read: 9
-- Projects built: 8
+- Source files read: 11
+- Projects built: 9
