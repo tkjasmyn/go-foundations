@@ -23,13 +23,15 @@ func main()  {
 
 		go func(c net.Conn) {
 			defer c.Close()
-			str, err := bufio.NewReader(c).ReadString('\n')
-			if err != nil {
-				fmt.Println("Error:", err)
-				return
+			for {
+				str, err := bufio.NewReader(c).ReadString('\n')
+				if err != nil {
+					fmt.Println("Error:", err)
+					return
+				}
+		
+				c.Write([]byte("ECHO: " + str))
 			}
-	
-			c.Write([]byte("ECHO: " + str))
 		}(conn)
 	}
 }
