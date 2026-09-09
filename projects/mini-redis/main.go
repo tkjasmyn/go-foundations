@@ -24,8 +24,9 @@ func main()  {
 
 		go func(c net.Conn) {
 			defer c.Close()
+			reader := bufio.NewReader(c)
 			for {
-				str, err := bufio.NewReader(c).ReadString('\n')
+				str, err := reader.ReadString('\n')
 				if err != nil {
 					fmt.Println("Error:", err)
 					return
