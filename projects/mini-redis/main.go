@@ -94,6 +94,16 @@ func main()  {
 						c.Write([]byte(":0" + "\n"))
 					}
 					mu.Unlock()
+				case "KEYS":
+					if len(store) == 0 {
+						c.Write([]byte("(empty)" + "\n"))
+					}
+					
+					mu.Lock()
+					for key := range store {
+						c.Write([]byte(key + "\n"))
+					}
+					mu.Unlock()
 				default:
 					c.Write([]byte("Unrecognized Command." + "\n"))
 				}
