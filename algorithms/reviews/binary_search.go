@@ -5,17 +5,16 @@ func BinarySearch(nums []int, target int) int {
 	right := len(nums)-1
 
 	for left <= right {
-		mid := (left + right) / 2
-
-		if nums[mid] == target {
+		mid := (right + left) / 2
+		if target == nums[mid] {
 			return mid
 		}
 
-		if nums[mid] < target {
-			left= mid + 1
+		if target > nums[mid] {
+			left = mid + 1
 		}
-
-		if nums[mid] > target {
+		
+		if target < nums[mid] {
 			right = mid - 1
 		}
 	}
