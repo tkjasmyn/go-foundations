@@ -2,9 +2,9 @@
 
 Learning Go deeply before AI specialization.
 
-## Current Week: Week 9: Mini Redis Clone (TCP Server, Protocol Parsing, Data Structures)
+## Current Week: Week 10: Load Balancer (HTTP Reverse Proxy, Health Checks, Round-Robin)
 
-[See Week 9 details →](weeks/week9.md)
+[See Week 10 details →](weeks/week10.md)
 
 ## Previous Weeks
 
@@ -16,6 +16,7 @@ Learning Go deeply before AI specialization.
 - [Week 6: Web Scraper](weeks/week6.md)
 - [Week 7: Chat Server](weeks/week7.md)
 - [Week 8: Task Scheduler](weeks/week8.md)
+- [Week 9: Mini Redis](weeks/week9.md)
 
 
 ## Projects
@@ -29,9 +30,10 @@ Learning Go deeply before AI specialization.
 - [Web Scraper](projects/web-scraper/)
 - [Chat Server](projects/chat-server/)
 - [Task Scheduler](projects/task-scheduler/)
+- [Mini Redis](projects/mini-redis/)
 
 ## Stats
 
 - Algorithms solved: 20
-- Source files read: 11
-- Projects built: 9
+- Source files read: 12
+- Projects built: 10
