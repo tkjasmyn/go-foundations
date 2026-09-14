@@ -7,5 +7,5 @@
 | Wed | product except self (PEEK, 30-sec peek) | —                                       | Mini Redis: in-memory map storage with sync.Mutex               | ✅     |
 | Thu | —                                       | —                                       | Mini Redis: KEYS command, 3-client concurrent test              | ✅     |
 | Fri | binary search (BUGGY, zero hints)       | —                                       | Mini Redis: polish, test with telnet/nc, push                   | ✅     |
-| Sat | week9 review            | —                                       | push log                                                        | ✅     |
+| Sat | week9 review                            | —                                       | push log                                                        | ✅     |
 | Sun | rest                                    | —                                       | —                                                               | ⬜     |
