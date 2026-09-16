@@ -4,19 +4,17 @@ import "sort"
 
 func GroupAnagrams(strs []string) [][]string {
 	groups := make(map[string][]string)
-
-	if len(strs) == 0 {
-		return [][]string{}
-	}
-
 	res := [][]string{}
 
 	for _, word := range strs {
-		chars := []rune(word)
-		sort.Slice(chars, func(i, j int) bool {
-			return chars[i] < chars[j]
+		char := []rune(word)
+
+		sort.Slice(char, func(i, j int) bool {
+			return char[i] < char[j]
 		})
-		str := string(chars)
+
+		str := string(char)
+
 		groups[str] = append(groups[str], word)
 	}
 
