@@ -37,3 +37,5 @@ Learning Go deeply before AI specialization.
 - Algorithms solved: 20
 - Source files read: 12
 - Projects built: 10
+
+<!-- practicing my first PR -->
