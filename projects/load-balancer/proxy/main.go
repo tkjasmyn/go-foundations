@@ -9,7 +9,7 @@ import (
 	"time"
 )
 
-type Backends struct {
+type Backend struct {
 	URL *url.URL
 	Alive bool
 }
@@ -18,15 +18,19 @@ var (
 	backend1, _ = url.Parse("http://localhost:8081")
 	backend2, _ = url.Parse("http://localhost:8082")
 	backend3, _ = url.Parse("http://localhost:8083")
+
+	b1 = Backend{URL: backend1, Alive: true}
+	b2 = Backend{URL: backend2, Alive: true}
+	b3 = Backend{URL: backend3, Alive: true}
 	
-	backends = []*url.URL{backend1, backend2, backend3}
+	backends = []*Backend{&b1, &b2, &b3}
 	count int
 	mu    sync.Mutex
 )
 
-func checkBackends(backends []*Backends)  {
+func checkBackends(backends []*Backend)  {
 	for _, b := range backends {
-		go func(b *Backends){		  
+		go func(b *Backend){		  
 			url := b.URL.String()
 			client := http.Client{Timeout: 3 * time.Second}
 			resp, err := client.Get(url)
@@ -45,7 +49,7 @@ func main()  {
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		mu.Lock()
 		count %= 3
-		server := backends[count]
+		server := backends[count].URL
 		count++
 		mu.Unlock()
 		
