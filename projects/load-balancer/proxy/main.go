@@ -46,13 +46,29 @@ func checkBackends(backends []*Backend)  {
 }
 
 func main()  {
+	go func(){
+	  for {
+		checkBackends(backends)
+		time.Sleep(5 * time.Second)
+	  }
+	}()
+
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		mu.Lock()
-		count %= 3
+		for i := 0; i < 3; i++ {
+			count %= 3
+			if backends[count].Alive == true {
+				break
+			}
+			count++
+		}
 		server := backends[count].URL
-		count++
 		mu.Unlock()
 		
+		if backends[count].Alive == false {
+			http.Error(w, "Service Unavailable", 503)
+			return
+		}
 		proxy := httputil.NewSingleHostReverseProxy(server)
 
 		proxy.ServeHTTP(w, r)
