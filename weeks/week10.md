@@ -7,5 +7,5 @@
 | Wed | group anagrams (PEEK, 30-sec peek) | —                         | Load Balancer: health checks (ping backends)        | ✅           |
 | Thu | —                                  | —                         | Load Balancer: remove dead backends, error handling | ✅ partially |
 | Fri | binary search (BUGGY, zero hints)  | —                         | Load Balancer: polish, test, push                   | ⬜           |
-| Sat | week10 review + weakest re-do      | —                         | push log                                            | ⬜           |
+| Sat | week10 review + weakest re-do      | —                         | push log                                            | ✅           |
 | Sun | rest                               | —                         | —                                                   | ⬜           |
