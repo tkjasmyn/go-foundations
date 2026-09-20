@@ -31,11 +31,12 @@ Learning Go deeply before AI specialization.
 - [Chat Server](projects/chat-server/)
 - [Task Scheduler](projects/task-scheduler/)
 - [Mini Redis](projects/mini-redis/)
+- [Load Balancer](projects/load-balancer/)
 
 ## Stats
 
 - Algorithms solved: 20
 - Source files read: 12
-- Projects built: 10
+- Projects built: 11
 
 <!-- practicing my first PR -->
