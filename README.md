@@ -17,6 +17,7 @@ Learning Go deeply before AI specialization.
 - [Week 7: Chat Server](weeks/week7.md)
 - [Week 8: Task Scheduler](weeks/week8.md)
 - [Week 9: Mini Redis](weeks/week9.md)
+- [Week 10: Load Balancer](weeks/week10.md)
 
 
 ## Projects
