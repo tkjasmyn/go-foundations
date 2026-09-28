@@ -55,20 +55,24 @@ func main()  {
 
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		mu.Lock()
-		for i := 0; i < 3; i++ {
-			count %= 3
-			if backends[count].Alive == true {
-				break
+		filteredList := []*Backend{}
+		for _, backend := range backends {
+			if backend.Alive {
+				filteredList = append(filteredList, backend)
 			}
-			count++
 		}
-		server := backends[count].URL
-		mu.Unlock()
 		
-		if backends[count].Alive == false {
+		if len(filteredList) == 0 {
+			mu.Unlock()
 			http.Error(w, "Service Unavailable", 503)
 			return
 		}
+
+		count++
+		idx := count % len(filteredList)
+		server := filteredList[idx].URL
+		mu.Unlock()
+		
 		proxy := httputil.NewSingleHostReverseProxy(server)
 
 		proxy.ServeHTTP(w, r)
