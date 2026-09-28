@@ -2,9 +2,9 @@
 
 Learning Go deeply before AI specialization.
 
-## Current Week: Week 10: Load Balancer (HTTP Reverse Proxy, Health Checks, Round-Robin)
+## Current Week: Week 12: Load Balancer Finish + Arrays & Hash Maps
 
-[See Week 10 details →](weeks/week10.md)
+[See Week 12 details →](weeks/week12.md)
 
 ## Previous Weeks
 
@@ -18,7 +18,7 @@ Learning Go deeply before AI specialization.
 - [Week 8: Task Scheduler](weeks/week8.md)
 - [Week 9: Mini Redis](weeks/week9.md)
 - [Week 10: Load Balancer](weeks/week10.md)
-
+- [Week 11: Break](weeks/week11.md)
 
 ## Projects
 
