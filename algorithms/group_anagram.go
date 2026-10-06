@@ -4,14 +4,15 @@ import "sort"
 
 func GroupAnagram(strs []string) [][]string {
 	m := make(map[string][]string)
-	
-	res := [][]string{}
 
+	res := [][]string{}
 	for _, str := range strs {
-		runes := []rune(str)
-		sort.Slice(runes, func(i, j int) bool {return runes[i] < runes[j]})
-		s := string(runes)
-			m[s] = append(m[s], str)
+		char := []rune(str)
+		sort.Slice(char, func(i, j int) bool {
+			return char[i] < char[j]
+		})
+		s := string(char)
+		m[s] = append(m[s], str)
 	}
 
 	for _, group := range m {
