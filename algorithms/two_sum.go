@@ -9,6 +9,7 @@ func TwoSum(nums []int, target int) []int {
 		if _, ok := seen[comp]; ok {
 			return []int{seen[comp], i}
 		}
+
 		seen[nums[i]] = i
 	}
 	return nil
