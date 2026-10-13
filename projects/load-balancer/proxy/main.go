@@ -9,11 +9,14 @@ import (
 	"time"
 )
 
+// Backend struct holding backend's url and status
 type Backend struct {
 	URL *url.URL
 	Alive bool
 }
 
+// Parse backends urls, convert to struct instance, 
+// group into a slice pointing to Backend, declare count and mu
 var (
 	backend1, _ = url.Parse("http://localhost:8081")
 	backend2, _ = url.Parse("http://localhost:8082")
@@ -28,8 +31,10 @@ var (
 	mu    sync.Mutex
 )
 
+// Healthcheck function
 func checkBackends(backends []*Backend)  {
 	for _, b := range backends {
+		// Goroutine for checking the backends' statuses
 		go func(b *Backend){		  
 			url := b.URL.String()
 			client := http.Client{Timeout: 3 * time.Second}
@@ -37,7 +42,10 @@ func checkBackends(backends []*Backend)  {
 			if err == nil {
 				if resp.StatusCode == 200 {
 					b.Alive = true
-				}
+					} else {
+						b.Alive = false
+					}
+				defer resp.Body.Close()
 			} else {
 				b.Alive = false
 			}
@@ -46,6 +54,7 @@ func checkBackends(backends []*Backend)  {
 }
 
 func main()  {
+	// Goroutine for underground continuous healthchecks
 	go func(){
 	  for {
 		checkBackends(backends)
@@ -53,6 +62,7 @@ func main()  {
 	  }
 	}()
 
+	// Server handler?
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		mu.Lock()
 		filteredList := []*Backend{}
@@ -68,8 +78,8 @@ func main()  {
 			return
 		}
 
-		count++
 		idx := count % len(filteredList)
+		count++
 		server := filteredList[idx].URL
 		mu.Unlock()
 		
